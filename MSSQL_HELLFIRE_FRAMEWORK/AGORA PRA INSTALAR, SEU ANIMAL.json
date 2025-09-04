@@ -1,0 +1,24 @@
+# INSTALAÇÃO COMPLETA (RECOMENDADO)
+pip install -r requirements.txt
+
+# INSTALAÇÃO LEVE
+pip install -r requirements-light.txt
+
+# INSTALAÇÃO DE DESENVOLVIMENTO  
+pip install -r requirements-dev.txt
+
+# SE TIVER PROBLEMAS, INSTALA MANUALMENTE:
+pip install requests pymssql cryptography paramiko beautifulsoup4 fake-useragent
+
+#############################################
+
+# Instalação completa
+pip install -r requirements.txt
+
+# Ou se quiser instalar direto:
+pip install requests pymssql cryptography paramiko beautifulsoup4 fake-useragent colorama tqdm
+
+# Executa o framework
+python main.py
+
+

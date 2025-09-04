@@ -1,0 +1,55 @@
+# E O setup.py PRA INSTALAÇÃO PROFISSIONAL:
+
+# Somente se qiser fazer algo completo !!!
+
+# setup.py
+from setuptools import setup, find_packages
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+with open("requirements.txt", "r", encoding="utf-8") as fh:
+    requirements = fh.read().splitlines()
+
+setup(
+    name="mssql-hellfire-framework",
+    version="12.0.0",
+    author="Lek Do BlacK",
+    author_email="lekdoblack@protonmail.com",
+    description="Advanced MSSQL Exploitation Framework",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/lekdoblack/mssql-hellfire",
+    packages=find_packages(),
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Information Technology",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Topic :: Security",
+        "Topic :: System :: Networking",
+        "Topic :: Database",
+    ],
+    python_requires=">=3.8",
+    install_requires=requirements,
+    entry_points={
+        "console_scripts": [
+            "hellfire=mssql_hellfire.cli:main",
+        ],
+    },
+    include_package_data=True,
+    package_data={
+        "mssql_hellfire": [
+            "wordlists/*",
+            "wordlists/payloads/*",
+            "config/*",
+            "lib/*",
+        ],
+    },
+    keywords="security penetration-testing mssql exploitation hacking",
+)

