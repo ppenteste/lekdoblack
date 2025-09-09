@@ -63,7 +63,7 @@ class Config:
         
         # APIs e chaves (configure conforme necessário)
         self.SHODAN_API_KEY = ""
-        self.VIRUSTOTAL_API_KEY = "abf2e2b191178c7451941daec95cc5c30d208ca32b8ae140396aba052f3d4a5c"
+        self.VIRUSTOTAL_API_KEY = ""
         self.CENSYS_API_ID = ""
         self.CENSYS_API_SECRET = ""
         
@@ -124,4 +124,5 @@ class Config:
         return False
 
 # Instância global de configuração
+
 config = Config()
